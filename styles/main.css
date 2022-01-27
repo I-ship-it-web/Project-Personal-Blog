@@ -19,8 +19,17 @@ html {
   background: antiquewhite;
 }
 
+body {
+  width: 100%;
+}
+
 li {
   list-style: none;
+}
+
+header > nav{
+  min-width: 100%;
+  background: rgba(226, 226, 226, .8);
 }
 
 a {
@@ -51,7 +60,7 @@ nav {
   justify-content: space-around;
   min-height: 10vh;
   align-items: center;
-  background: rgba(226, 226, 226, .8);
+  
   padding: 0 25px;
   transition: 0.3s;
 }
@@ -103,39 +112,28 @@ nav {
 /* content section home site */
 .content-container {
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: minmax(100px, auto);
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  grid-template-rows: auto;
   grid-template-areas: 
-  "left-content right-content"
-  "left-content right-content";
+  " l-bar featured-articles r-bar";
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bar{
+  grid-area: l-bar;
+}
+
+.r-bar {
+  grid-area: r-bar;
 }
 
 .content-container h2 {
   display: block;
   margin: 2rem;
+  font-size: 20px;
   text-decoration: underline;
-}
-
-/* styles for author content */
-.left-content {
-  border-right: 1px solid gray;
-  height: 750px;
-  margin-right: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.author-img figure {
-  margin: 3rem;
-}
-
-.author-img img {
-  width: 15vw;
-  border-radius: 50%;
-  border: 1px solid black;
-  display: block;
-  position: relative;
 }
 
 /* styles for the grid categories */
@@ -145,10 +143,8 @@ nav {
   grid-template-rows: 1fr 1fr;
   grid-template-areas: 
   " a b "
-  " a b "
-  " c d "
   " c d ";
-  gap: 1.5rem;
+  gap: 1em;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -177,8 +173,7 @@ figure a:hover {
 }
 
 .box img {
-  width: 60%;
-  height: 60%;
+  width: 70%;
   border: 1px solid black;
   border-radius: 50%;
   margin-top: 1rem;
@@ -199,11 +194,14 @@ figure a:hover {
   " ha ha"
   " article"
   " article"
-  " ra";
+  " ra"
+  "bim "
+  "subi";
   justify-content: center;
   align-items: center;
   gap: 1rem;
   text-align: center;
+  margin: 1rem;
 }
 
 .header-article {
@@ -212,18 +210,133 @@ figure a:hover {
 
 .article {
   grid-area: article;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+  "aimg"
+  "ra ";
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.blog-img {
+  grid-template-areas: aimg;
 }
 
 .article > .blog-img img{
-  width: 50%;
+  width: 60%;
   border-radius: 10%;
+  opacity: 85%;
 }
 
 .random-post {
   grid-area: ra;
-  width: 50vh;
-  display: inline-grid;
+}
+
+blockquote{
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.bauthor {
+  border: 2px inset black;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns:  1fr  1fr ;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  "bh3 bh3"
+  "bim p1";
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  margin: 1rem;
+}
+
+.bauthor-img {
+  grid-area: bim;
+  margin: 1rem;
+  display: inline-grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.bh3 {
+  grid-area: bh3;
+}
+
+.bauthor p {
+  grid-area: p1;
+}
+
+.bauthor-img img {
+  width: 15vh;
+  display: block;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.submit {
+  grid-area: subi;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  "b-sub p-su";
+  gap: 1rem;
+  margin-bottom: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+.b-submit {
+  grid-area: b-sub;
+  display: block;
+  text-align: center;
+}
+
+.name {
+  width: 30vw;
+  height: 3vh;
+  border-radius: 10px;
+  border-style: none;
+  margin: 2px;
+  text-align: center;
+}
+
+.email {
+  border-radius: 10px;
+  width: 30vw;
+  height: 3vh;
+  border-style: none;
+  margin: 2px ;
+  text-align: center;
+}
+
+.button {
+  width: 30vw;
+  height: 3vh;
+  border-radius: 10px;
+  border-style: none;
+  text-align: center;
+}
+
+.button:hover {
+  background: crimson;
+  color: antiquewhite;
+}
+
+.p-submit {
+  grid-area: p-su;
+  display: block;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border-left: 2px solid gray;
 }
 
 /* global footer */  
